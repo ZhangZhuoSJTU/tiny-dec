@@ -1,0 +1,39 @@
+name: Suggest a Resource
+description: Recommend a resource for the Further Reading section
+title: "[Resource] "
+labels: ["further-reading"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      placeholder: "e.g., decompilation.wiki"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      placeholder: "https://..."
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Blog / Tutorial
+        - Academic Paper
+        - Tool Documentation
+        - Course / Lecture Series
+        - Book
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Why is this resource valuable?
+      placeholder: "What did you learn from it? Which pipeline stages does it relate to?"
+    validations:
+      required: true

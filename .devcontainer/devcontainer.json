@@ -1,0 +1,30 @@
+{
+  "name": "tiny-dec (Linux)",
+  "initializeCommand": "docker build --platform linux/amd64 -f ${localWorkspaceFolder}/docker/Dockerfile.dev -t tiny-dec-devcontainer:latest ${localWorkspaceFolder}",
+  "image": "tiny-dec-devcontainer:latest",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "mounts": [
+    "source=tiny-dec-container-home-amd64,target=/tmp/tinydec-home,type=volume"
+  ],
+  "containerEnv": {
+    "HOME": "/tmp/tinydec-home",
+    "POETRY_CACHE_DIR": "/tmp/tinydec-home/.cache/pypoetry",
+    "PIP_CACHE_DIR": "/tmp/tinydec-home/.cache/pip"
+  },
+  "remoteUser": "root",
+  "postCreateCommand": "poetry install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.terminal.activateEnvironment": true
+      }
+    }
+  }
+}
