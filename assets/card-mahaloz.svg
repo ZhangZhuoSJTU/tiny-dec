@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="12" fill="#fff0f6" stroke="#fecdd3" stroke-width="1"/>
+  <text x="60" y="40" text-anchor="middle" font-size="36">&#x1F52C;</text>
+  <text x="60" y="66" text-anchor="middle"
+        font-family="'SF Pro Display','Segoe UI',system-ui,sans-serif"
+        font-size="14" font-weight="700" fill="#831843">mahaloz</text>
+  <text x="60" y="82" text-anchor="middle"
+        font-family="'SF Pro Display','Segoe UI',system-ui,sans-serif"
+        font-size="14" font-weight="700" fill="#831843">.re</text>
+  <text x="60" y="104" text-anchor="middle"
+        font-family="'SF Pro Display','Segoe UI',system-ui,sans-serif"
+        font-size="11" fill="#be185d">Structuring &amp; Eval</text>
+</svg>
