@@ -6,6 +6,14 @@ from collections.abc import Iterable
 
 from tiny_dec.loader.program_view import ProgramView
 
+def _append_section(lines: list[str], header: str, items) -> None:
+    lines.append("")
+    lines.append(header)
+    if items:
+        lines.extend(f"  {item.to_pretty_line()}" for item in items)
+    else:
+        lines.append("  <none>")
+
 
 def format_loader_snapshot(
     view: ProgramView,
@@ -31,9 +39,7 @@ def format_loader_snapshot(
     lines.extend(f"  {section.to_pretty_line()}" for section in sections)
 
     if show_externals:
-        lines.append("")
-        lines.append("external_functions:")
-        lines.extend(f"  {fn.to_pretty_line()}" for fn in view.external_functions())
+        _append_section(lines, "external_functions:", view.external_functions())
 
     return "\n".join(lines)
 
@@ -65,20 +71,7 @@ def format_binary_info(
     else:
         lines.append("  <none>")
 
-    lines.append("")
-    lines.append("symbols:")
-    symbols = view.symbols()
-    if symbols:
-        lines.extend(f"  {symbol.to_pretty_line()}" for symbol in symbols)
-    else:
-        lines.append("  <none>")
-
-    lines.append("")
-    lines.append("external_functions:")
-    externals = view.external_functions()
-    if externals:
-        lines.extend(f"  {fn.to_pretty_line()}" for fn in externals)
-    else:
-        lines.append("  <none>")
+    _append_section(lines, "symbols:", view.symbols())
+    _append_section(lines, "external_functions:", view.external_functions())
 
     return "\n".join(lines)
