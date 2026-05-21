@@ -1,0 +1,40 @@
+.container-home/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test/tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Packaging/build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# IDE/editor
+.vscode/
+.idea/
+
+
+# Website
+website/node_modules/
+website/bun.lock
+website/stage_data_raw.txt
+
+# OS junk
+.DS_Store
+Thumbs.db

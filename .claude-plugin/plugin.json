@@ -1,0 +1,5 @@
+{
+  "name": "tiny-dec",
+  "version": "1.0.0",
+  "description": "Interactive decompilation teacher — learn how decompilers work by exploring tiny-dec's 19-stage RV32I pipeline with guided lessons, quizzes, and hands-on exercises."
+}

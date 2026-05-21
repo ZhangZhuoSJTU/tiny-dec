@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 550" role="img" aria-label="tiny-dec AI tutor in Claude Code">
+  <title>tiny-dec AI Tutor — interactive decompilation lesson in Claude Code</title>
+
+  <style>
+    /* Frame */
+    .frame { fill: #FFFFFF; stroke: #E5E2DA; stroke-width: 1; }
+    .header { fill: #FAF8F4; }
+    .header-divider { stroke: #E5E2DA; stroke-width: 1; }
+    .dot-r { fill: #E8A899; }
+    .dot-y { fill: #E5C88E; }
+    .dot-g { fill: #95B79A; }
+
+    text { font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; }
+
+    /* Banner */
+    .box { fill: #C0C3CC; font-size: 12px; }
+    .banner-title { fill: #1A2332; font-size: 13px; font-weight: 700; }
+    .banner-text { fill: #5A6373; font-size: 12px; }
+    .banner-bold { fill: #1A2332; font-size: 12px; font-weight: 600; }
+    .banner-dim { fill: #8A8F99; font-size: 12px; }
+    .banner-accent { fill: #D97757; font-size: 12px; font-weight: 600; }
+    .banner-logo { fill: #D97757; }
+
+    /* Conversation */
+    .resp-bullet { fill: #D97757; font-size: 13px; }
+    .tool-bullet { fill: #8A8F99; font-size: 13px; }
+    .claude-text { fill: #3A3F4B; font-size: 13px; }
+    .claude-bold { fill: #1A2332; font-size: 13px; font-weight: 600; }
+    .tool-name { fill: #8A8F99; font-size: 13px; }
+    .tool-branch { fill: #C0C3CC; font-size: 13px; }
+    .tool-output { fill: #8A8F99; font-size: 13px; }
+    .code { fill: #C97863; font-size: 13px; }
+    .dim { fill: #8A8F99; font-size: 13px; }
+    .user-marker { fill: #D97757; font-size: 13px; font-weight: 700; }
+    .user-text { fill: #1A2332; font-size: 13px; }
+
+    .line {
+      opacity: 0;
+      animation-duration: 24s;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+      animation-timing-function: ease-out;
+    }
+    /* 10 sequential messages, each ~7% apart over 24s cycle */
+    .msg-1  { animation-name: m1; }
+    .msg-2  { animation-name: m2; }
+    .msg-3  { animation-name: m3; }
+    .msg-4  { animation-name: m4; }
+    .msg-5  { animation-name: m5; }
+    .msg-6  { animation-name: m6; }
+    .msg-7  { animation-name: m7; }
+    .msg-8  { animation-name: m8; }
+    .msg-9  { animation-name: m9; }
+    .msg-10 { animation-name: m10; }
+
+    @keyframes m1  { 0%,1%  { opacity:0 } 3%,92%  { opacity:1 } 96%,100% { opacity:0 } }
+    @keyframes m2  { 0%,7%  { opacity:0 } 9%,92%  { opacity:1 } 96%,100% { opacity:0 } }
+    @keyframes m3  { 0%,14% { opacity:0 } 16%,92% { opacity:1 } 96%,100% { opacity:0 } }
+    @keyframes m4  { 0%,21% { opacity:0 } 23%,92% { opacity:1 } 96%,100% { opacity:0 } }
+    @keyframes m5  { 0%,28% { opacity:0 } 30%,92% { opacity:1 } 96%,100% { opacity:0 } }
+    @keyframes m6  { 0%,37% { opacity:0 } 39%,92% { opacity:1 } 96%,100% { opacity:0 } }
+    @keyframes m7  { 0%,44% { opacity:0 } 46%,92% { opacity:1 } 96%,100% { opacity:0 } }
+    @keyframes m8  { 0%,51% { opacity:0 } 53%,92% { opacity:1 } 96%,100% { opacity:0 } }
+    @keyframes m9  { 0%,60% { opacity:0 } 62%,92% { opacity:1 } 96%,100% { opacity:0 } }
+    @keyframes m10 { 0%,67% { opacity:0 } 69%,92% { opacity:1 } 96%,100% { opacity:0 } }
+
+    .cursor {
+      fill: #D97757;
+      font-size: 13px;
+      font-weight: 700;
+      animation: blink 24s infinite;
+    }
+    @keyframes blink {
+      0%,69%  { opacity: 0 }
+      72%,76% { opacity: 1 }
+      78%,82% { opacity: 0 }
+      84%,88% { opacity: 1 }
+      90%,92% { opacity: 0 }
+      96%,100%{ opacity: 0 }
+    }
+  </style>
+
+  <!-- Window frame -->
+  <rect class="frame" x="0.5" y="0.5" width="779" height="549" rx="10"/>
+
+  <!-- Header bar -->
+  <path class="header" d="M 1 10 Q 1 1 10 1 L 770 1 Q 779 1 779 10 L 779 33 L 1 33 Z"/>
+  <line class="header-divider" x1="1" y1="33" x2="779" y2="33"/>
+  <circle class="dot-r" cx="20" cy="17" r="5"/>
+  <circle class="dot-y" cx="36" cy="17" r="5"/>
+  <circle class="dot-g" cx="52" cy="17" r="5"/>
+
+  <!-- ═══ Startup Banner ═══ -->
+  <g transform="translate(28, 48)">
+    <!-- Banner frame (SVG lines for pixel-perfect connection) -->
+    <rect x="0" y="0" width="724" height="140" rx="6" fill="none" stroke="#C0C3CC" stroke-width="1"/>
+    <line x1="336" y1="0" x2="336" y2="140" stroke="#C0C3CC" stroke-width="1"/>
+
+    <!-- Left panel: Welcome + logo + model info -->
+    <text class="banner-title" x="168" y="28" text-anchor="middle">Welcome!</text>
+
+    <!-- Claude Code logo (large, vertically centered with Welcome) -->
+    <g transform="translate(142, 40) scale(2.2)">
+      <path fill="#D97757" fill-rule="evenodd" clip-rule="evenodd" d="M20.998 10.949H24v3.102h-3v3.028h-1.487V20H18v-2.921h-1.487V20H15v-2.921H9V20H7.488v-2.921H6V20H4.487v-2.921H3V14.05H0V10.95h3V5h17.998v5.949zM6 10.949h1.488V8.102H6v2.847zm10.51 0H18V8.102h-1.49v2.847z"/>
+    </g>
+
+    <text class="banner-dim" x="168" y="120" text-anchor="middle">Opus 4 · RV32I · Claude Code</text>
+
+    <!-- Right panel: Install steps -->
+    <text class="banner-bold" x="352" y="28">Install the plugin</text>
+    <text class="banner-dim" x="352" y="48">/plugin marketplace add ZhangZhuoSJTU/tiny-dec</text>
+    <text class="banner-dim" x="352" y="64">/plugin install tiny-dec@tiny-dec</text>
+    <text class="banner-dim" x="352" y="80">/reload-plugins</text>
+
+    <text class="banner-accent" x="352" y="108">/tiny-dec:teach-decompilation</text>
+    <text class="banner-dim" x="584" y="108">to start</text>
+  </g>
+
+  <!-- ═══ Conversation ═══ -->
+  <g transform="translate(28, 206)">
+
+    <!-- 1. User invokes skill -->
+    <text class="line msg-1" y="14">
+      <tspan class="user-marker">&gt;</tspan>
+      <tspan class="user-text" dx="6">/tiny-dec:teach-decompilation</tspan>
+    </text>
+
+    <!-- 2. Agent: assessment question -->
+    <text class="line msg-2" y="40">
+      <tspan class="resp-bullet">●</tspan>
+      <tspan class="claude-text" dx="6">Have you worked with assembly before?</tspan>
+    </text>
+    <text class="line msg-2" y="58">
+      <tspan class="dim" dx="16">(a) Never  (b) A little  (c) Comfortable</tspan>
+    </text>
+
+    <!-- 3. User answers -->
+    <text class="line msg-3" y="86">
+      <tspan class="user-marker">&gt;</tspan>
+      <tspan class="user-text" dx="6">b, I've seen it but never written it</tspan>
+    </text>
+
+    <!-- 4. Agent: route to stage 00 -->
+    <text class="line msg-4" y="112">
+      <tspan class="resp-bullet">●</tspan>
+      <tspan class="claude-text" dx="6">Great! Starting with</tspan>
+      <tspan class="claude-bold" dx="3">Stage 00: Loader</tspan>
+      <tspan class="claude-text">. Let me show you the binary:</tspan>
+    </text>
+
+    <!-- 5. Agent: tool call + output + explanation -->
+    <text class="line msg-5" y="140">
+      <tspan class="tool-bullet">●</tspan>
+      <tspan class="tool-name" dx="6">Bash(tiny-dec info tests/fixtures/bin/fixture_basic_O0_nopie.elf)</tspan>
+    </text>
+    <text class="line msg-5" y="158">
+      <tspan class="tool-branch" dx="16">⎿</tspan>
+      <tspan class="tool-output" dx="6">arch: riscv32  entrypoint: 0x110d4  main: 0x110d4  functions: 2</tspan>
+    </text>
+    <text class="line msg-5" y="184">
+      <tspan class="resp-bullet">●</tspan>
+      <tspan class="claude-text" dx="6">The loader found</tspan>
+      <tspan class="claude-bold" dx="3">main</tspan>
+      <tspan class="claude-text" dx="3">at 0x110d4 by scanning _start for a call pattern.</tspan>
+    </text>
+
+    <!-- 6. Agent: quiz question -->
+    <text class="line msg-6" y="212">
+      <tspan class="resp-bullet">●</tspan>
+      <tspan class="claude-text" dx="6">Quiz: Why can't the loader just read "main" from the symbol table?</tspan>
+    </text>
+
+    <!-- 7. User answers quiz -->
+    <text class="line msg-7" y="238">
+      <tspan class="user-marker">&gt;</tspan>
+      <tspan class="user-text" dx="6">stripped binaries don't have symbols</tspan>
+    </text>
+
+    <!-- 8. Agent: correct + source code -->
+    <text class="line msg-8" y="266">
+      <tspan class="resp-bullet">●</tspan>
+      <tspan class="claude-text" dx="6">Exactly! Here's the heuristic in the source:</tspan>
+    </text>
+    <text class="line msg-8" y="290">
+      <tspan class="tool-bullet">●</tspan>
+      <tspan class="tool-name" dx="6">Read(tiny_dec/loader/main_locator.py:83)</tspan>
+    </text>
+    <text class="line msg-8" y="308">
+      <tspan class="tool-branch" dx="16">⎿</tspan>
+      <tspan class="code" dx="6">window_start = max(0, call_index - 20)</tspan>
+    </text>
+
+    <!-- 9. User: next stage -->
+    <text class="line msg-9" y="336">
+      <tspan class="user-marker">&gt;</tspan>
+      <tspan class="user-text" dx="6">next stage</tspan>
+    </text>
+
+    <!-- 10. Agent: transition -->
+    <text class="line msg-10" y="362">
+      <tspan class="resp-bullet">●</tspan>
+      <tspan class="claude-text" dx="6">On to</tspan>
+      <tspan class="claude-bold" dx="3">Stage 01: Decode</tspan>
+      <tspan class="claude-text">! Every RV32I instruction is exactly 4 bytes...</tspan>
+    </text>
+
+    <!-- Blinking cursor -->
+    <text class="cursor" x="0" y="362" dy="26">&gt;</text>
+  </g>
+</svg>

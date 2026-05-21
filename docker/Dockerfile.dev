@@ -1,0 +1,26 @@
+FROM silkeh/clang:21-trixie
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    POETRY_NO_INTERACTION=1 \
+    POETRY_VERSION=2.3.2
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    binutils \
+    build-essential \
+    ca-certificates \
+    cmake \
+    file \
+    git \
+    lld \
+    python3 \
+    python3-pip \
+    python3-venv \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m pip install --break-system-packages --no-cache-dir "poetry==${POETRY_VERSION}" \
+    && ln -sf /usr/bin/python3 /usr/local/bin/python \
+    && ln -sf /usr/bin/pip3 /usr/local/bin/pip
+
+WORKDIR /workspace
